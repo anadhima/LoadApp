@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private var downloadID: Long = 0
     private var checked = ""
-
+    private val NOTIFICATION_ID = 0
     private lateinit var downloadManager: DownloadManager
     private lateinit var notificationManager: NotificationManager
 
@@ -62,13 +62,49 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    //broadcastReceiver
     private val receiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-            val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+        override fun onReceive(context: Context, intent: Intent) {
+            val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+
+
+            val notificationManager = getSystemService(NotificationManager::class.java)
+            var status: String? = null
+            var downloadStatus: Int? = null
+
+            val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+            val query = id?.let { DownloadManager.Query().setFilterById(it) }
+            val cursor = downloadManager.query(query)
+
+            if (cursor.moveToFirst()) {
+                downloadStatus = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS))
+            }
+
+            when (downloadStatus) {
+                DownloadManager.STATUS_SUCCESSFUL -> {
+                    status = "Success"
+                }
+                DownloadManager.STATUS_FAILED -> {
+                    status = "Fail"
+                }
+            }
+
+            if (context != null) {
+                if (status != null) {
+                    notificationManager.sendNotification(
+                        context,
+                        checked,
+                        CHANNEL_ID,
+                        status
+                    )
+                }
+            }
+
+            loading_button.buttonState = ButtonState.Completed
 
 
         }
-
     }
 
     private fun download(url: String) {
@@ -83,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         downloadID =
             downloadManager.enqueue(request)// enqueue puts the download request in the queue.
-        //loading_button.buttonState = ButtonState.Loading
+
     }
 
 
@@ -125,5 +161,6 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         unregisterReceiver(receiver)
     }
+
 
 }

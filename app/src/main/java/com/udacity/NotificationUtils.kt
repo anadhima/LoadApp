@@ -20,7 +20,7 @@ fun NotificationManager.sendNotification(
     applicationContext: Context,
     messageBody: String,
     channelId: String,
-    status: Int) {
+    status: String) {
 
     // Create the content intent for the notification, which launches DetailActivity
     val contentIntent = Intent(applicationContext, DetailActivity::class.java)
