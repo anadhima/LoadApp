@@ -163,5 +163,4 @@ class LoadingButton @JvmOverloads constructor(
     fun setState(state: ButtonState) {
         buttonState = state
     }
-
 }

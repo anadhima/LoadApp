@@ -40,17 +40,18 @@ class MainActivity : AppCompatActivity() {
                 R.id.radio_button_glide -> {
                     checked = getString(R.string.glide_image_loading)
                     download(GLIDE_URL)
-                    loading_button.buttonState = ButtonState.Loading
+
+                    loading_button.setState(ButtonState.Loading)
                 }
                 R.id.radio_button_udacity -> {
                     checked = getString(R.string.load_app)
                     download(LOAD_APP_URL)
-                    loading_button.buttonState = ButtonState.Loading
+                    loading_button.setState(ButtonState.Loading)
                 }
                 R.id.radio_button_retrofit -> {
                     checked = getString(R.string.retrofit)
                     download(RETROFIT_URL)
-                    loading_button.buttonState = ButtonState.Loading
+                    loading_button.setState(ButtonState.Loading)
                 }
                 else -> {
                     Toast.makeText(this, "Select File", Toast.LENGTH_SHORT).show()
@@ -101,9 +102,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            loading_button.buttonState = ButtonState.Completed
 
-
+            loading_button.setState(ButtonState.Completed)
         }
     }
 

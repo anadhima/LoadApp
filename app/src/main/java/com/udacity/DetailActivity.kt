@@ -7,6 +7,7 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.description.*
 
 class DetailActivity : AppCompatActivity() {
