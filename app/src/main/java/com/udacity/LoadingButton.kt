@@ -45,7 +45,7 @@ class LoadingButton @JvmOverloads constructor(
         when (new) {
             ButtonState.Loading -> {
 
-                buttonText = " LOADING FILE..."
+                buttonText = " LOADING..."
                 // button animation set up
                 buttonAnimator = ValueAnimator.ofFloat(0f, measuredWidth.toFloat())
                     .apply {
@@ -73,7 +73,10 @@ class LoadingButton @JvmOverloads constructor(
                     start()
 
                 }
+
             }
+
+
             ButtonState.Completed -> {
                 buttonText = "READY FOR REVIEW"
                 loadingWidth = 0f

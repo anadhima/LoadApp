@@ -32,7 +32,7 @@ class DetailActivity : AppCompatActivity() {
 
         coordinateMotion()
 
-        ok_button.setOnClickListener {
+        fab.setOnClickListener {
             finish()
         }
     }

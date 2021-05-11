@@ -32,6 +32,7 @@
 
         </androidx.constraintlayout.motion.widget.MotionLayout>
 
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -42,5 +43,14 @@
         <include layout="@layout/description" />
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/appbar_layout"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/check" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
