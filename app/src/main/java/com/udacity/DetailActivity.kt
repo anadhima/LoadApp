@@ -25,7 +25,7 @@ class DetailActivity : AppCompatActivity() {
         file_status_label.text = status
 
         if (status == "Success") {
-            file_status_label.setTextColor(Color.GREEN)
+            file_status_label.setTextColor(Color.parseColor("#00917b"))
         } else if (status == "Fail") {
             file_status_label.setTextColor(Color.RED)
         }

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private var downloadID: Long = 0
     private var checked = ""
-    private val NOTIFICATION_ID = 0
+
     private lateinit var downloadManager: DownloadManager
     private lateinit var notificationManager: NotificationManager
 
@@ -155,6 +155,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loading_button.setState(ButtonState.Clicked)
     }
 
     override fun onDestroy() {

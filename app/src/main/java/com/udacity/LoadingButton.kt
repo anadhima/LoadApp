@@ -8,6 +8,7 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateInterpolator
+import androidx.core.content.ContextCompat.getColor
 import kotlin.properties.Delegates
 
 class LoadingButton @JvmOverloads constructor(
@@ -22,6 +23,7 @@ class LoadingButton @JvmOverloads constructor(
     private var buttonText = ""
 
     private var buttonBackgroundColor = 0
+
     private var buttonTextColor = 0
     private var circleColor = 0
 
@@ -88,6 +90,8 @@ class LoadingButton @JvmOverloads constructor(
             else -> {
                 ButtonState.Clicked
                 buttonText = "DOWNLOAD"
+                loadingWidth = 1f
+                loadingAngle = 1f
             }
 
         }
@@ -113,6 +117,7 @@ class LoadingButton @JvmOverloads constructor(
             buttonBackgroundColor = getColor(R.styleable.LoadingButton_primaryBackgroundColor, 0)
             buttonTextColor = getColor(R.styleable.LoadingButton_textColor, 0)
             circleColor = getColor(R.styleable.LoadingButton_circularProgressColor, 0)
+
 
         }
         paintButton.color = buttonBackgroundColor
