@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
 
     <ConstraintSet android:id="@+id/start">
         <Constraint android:id="@+id/background" />
@@ -10,18 +11,24 @@
         <Constraint android:id="@id/background" />
     </ConstraintSet>
 
-    
+
 
     <Transition
         app:constraintSetStart="@+id/start"
         app:constraintSetEnd="@+id/end">
 
-        <KeyFrameSet>
 
+        <KeyFrameSet>
+            <KeyPosition
+                motion:framePosition="20"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@+id/background"
+                motion:percentX="1.2" />
             <KeyAttribute
-                app:framePosition="100"
-                app:motionTarget="@id/background"
-                android:translationY="130dp" />
+                android:alpha="0.0"
+                motion:framePosition="20"
+                motion:motionTarget="@+id/background" />
+
         </KeyFrameSet>
     </Transition>
 </MotionScene>

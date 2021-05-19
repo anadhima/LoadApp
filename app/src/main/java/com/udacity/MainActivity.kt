@@ -80,7 +80,10 @@ class MainActivity : AppCompatActivity() {
 
             if (cursor.moveToFirst()) {
                 downloadStatus = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS))
+
+
             }
+
 
             when (downloadStatus) {
                 DownloadManager.STATUS_SUCCESSFUL -> {
@@ -157,9 +160,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    
     override fun onResume() {
         super.onResume()
         loading_button.setState(ButtonState.Clicked)
+        notificationManager.cancelNotifications()
     }
 
     override fun onDestroy() {

@@ -19,6 +19,9 @@
     <string name="ok">Ok</string>
     <string name="downloaded">Downloaded</string>
     <string name="check_details">Check Details</string>
+    <string name="check_status">Check Status</string>
     <string name="download_notification_channel_id">channelId</string>
+    <string name="file_name_label">File name label</string>
+    <string name="file_status_label">File status label</string>
 
 </resources>

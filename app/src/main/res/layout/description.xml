@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/description_motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/description_scene">
+
     <TextView
         android:id="@+id/file_name"
         android:layout_width="wrap_content"
@@ -60,5 +66,5 @@
         app:layout_constraintTop_toBottomOf="@+id/file_status_label"
         app:layout_constraintVertical_bias="0.989" />
 -->
-
+</androidx.constraintlayout.motion.widget.MotionLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

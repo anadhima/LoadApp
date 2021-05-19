@@ -36,7 +36,11 @@ fun NotificationManager.sendNotification(
         PendingIntent.FLAG_UPDATE_CURRENT
     )
 
-
+    action = NotificationCompat.Action(
+        null,
+        applicationContext.getString(R.string.check_status),
+        pendingIntent
+    )
 
     // Build the notification
     val builder = NotificationCompat.Builder(
@@ -50,7 +54,7 @@ fun NotificationManager.sendNotification(
         .setSmallIcon(R.drawable.ic_assistant_black_24dp)
         .setContentTitle(applicationContext.getString(R.string.downloaded))
         .setContentText(messageBody)
-
+        .addAction(action)
         .setContentIntent(pendingIntent)
         .setAutoCancel(true)
 
